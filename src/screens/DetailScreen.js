@@ -23,8 +23,8 @@ class DetailScreen extends Component{
         // let characterList = [this.props.father,this.props.mother]
         // this.props.getMultipleCharacters(characterList);
         this.props.getCharacter(this.props.father);
-        var characterId = this.props.url.slice(49,this.props.url.length)
-        var avatarUrl = `https://i.picsum.photos/id/${characterId}/500/500.jpg`
+        var characterId= this.props.url.split("/")
+        var avatarUrl = `https://i.picsum.photos/id/${characterId[characterId.length-1]}/200/300.jpg`
         return(
             <View>
                 <ScrollView>

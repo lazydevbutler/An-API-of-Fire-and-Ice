@@ -64,20 +64,27 @@ function setCharacter(obj)
 
 function getCharacterList(listURL){
     return dispatch =>{
+        dispatch(request(listURL))
         return new Promise (function(resolve,reject){
             let characterList = [];
-            listURL.map(characterUrl=>{
+            const listPromise = listURL.map(characterUrl=>{
+                return new Promise(function(resolve,reject){
                 charactersService.getCharacter(characterUrl).then(
                     respond =>{
-                        characterList.push(respond);
-                        resolve(dispatch(success(characterList)))
+                        resolve(characterList.push(respond));
                     },
                     error =>{
                         reject(dispatch(failure(error)))
                     }
                 )
             })
-        
+        })
+            Promise.all(listPromise).then(()=>{
+                // console.log(characterList)
+                resolve(dispatch(success(characterList)))
+            }).catch((error)=>{
+                reject(dispatch(failure(error)));
+            })
         })
     }
 

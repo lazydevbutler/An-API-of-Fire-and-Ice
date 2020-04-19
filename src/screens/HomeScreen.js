@@ -3,15 +3,14 @@ import { View,Text, StyleSheet, ScrollView, FlatList } from "react-native"
 import { ListItem} from 'react-native-elements';
 import {connect} from 'react-redux';
 import ContainerList from "../components/ListComponent"
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {booksAction, charactersAction} from '../_actions';
 
 class HomeScreen extends Component{
   constructor(props){
     super(props);
-    this.renderLoading.bind(this);
     this.onClick.bind(this);
-    // this.loadMore.bind(this);
     this.state ={
       characters:[],
       initialData:[],
@@ -28,14 +27,6 @@ class HomeScreen extends Component{
     })
   }
 
-
-  renderLoading(){
-    if(this.props.loading){
-      // console.log("HIHIHIH" +this.props.loading)
-      // return <Spinner />
-    }
-  }
-
   onClick = (character)=>{
     // console.log(character)
     this.props.setCharacter(character)
@@ -46,8 +37,9 @@ class HomeScreen extends Component{
   keyExtractor = (item,index) => index.toString();
 
   renderItem = ({ item,index }) =>{
-    var characterId = item.url.slice(49,item.url.length)
-    var avatarUrl = `https://i.picsum.photos/id/${characterId}/200/300.jpg`
+    // var characterId = item.url.slice(49,item.url.length)
+    var characterId= item.url.split("/")
+    var avatarUrl = `https://i.picsum.photos/id/${characterId[characterId.length-1]}/200/300.jpg`
    return( 
     <ListItem
       title={item.name}
@@ -58,12 +50,16 @@ class HomeScreen extends Component{
     />
   )
 }
-
     render(){   
+  
         return(
-        
-           <View>        
-               <FlatList 
+           <View>
+             <Spinner
+                    visible={this.props.cLoading}
+                    textContent={"Loading ..."}
+                    textStyle={{ color: '#FFF' }}
+                />
+               <FlatList
                keyExtractor = {this.keyExtractor}
                data={this.props.characterList}
                renderItem={this.renderItem}
