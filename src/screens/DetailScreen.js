@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text ,Image,StyleSheet} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {charactersAction} from '../_actions'
+import { Divider } from 'react-native-elements';
 // import { Image } from 'react-native-elements';
 
 
@@ -24,9 +25,9 @@ class DetailScreen extends Component{
         // this.props.getMultipleCharacters(characterList);
         this.props.getCharacter(this.props.father);
         var characterId= this.props.url.split("/")
-        var avatarUrl = `https://i.picsum.photos/id/${characterId[characterId.length-1]}/200/300.jpg`
+        var avatarUrl = `https://i.picsum.photos/id/${characterId[characterId.length-1]}/500/500.jpg`
         return(
-            <View>
+            <View style = {styles.container}>
                 <ScrollView>
                 <View style={styles.ImageContainer}>
                 <Image
@@ -38,26 +39,35 @@ class DetailScreen extends Component{
                     <Text 
                     style={styles.CharacterName}>{this.props.name}</Text>
                 </View>
+                {/* <Divider /> */}
+
                 <View style={styles.MiscContainer}>
+                    <Text style={styles.LeftText}>
+                    Gender
+                    </Text>
                     <Text style={styles.NormalText}>
-                        Gender: {this.props.gender}
+                        {this.props.gender}
+                    </Text>
+                   
+                </View>
+                <View style={styles.MiscContainer}>
+                    <Text style={styles.LeftText}>
+                        Born
+                    </Text>
+                    <Text style={styles.NormalText}>
+                        {this.props.born}
                     </Text>
                 </View>
                 <View style={styles.MiscContainer}>
+                    <Text style={styles.LeftText}>
+                        Died
+                    </Text>
                     <Text style={styles.NormalText}>
-                        Born: {this.props.born}
+                        {this.props.died}
                     </Text>
                 </View>
-                <View style={styles.MiscContainer}>
-                    <Text style={styles.NormalText}>
-                        Died: {this.props.died}
-                    </Text>
-                </View>
-                <View style={styles.MiscContainer}>
-                    <Text style={{
-                        fontSize:20,
-                        textDecorationLine:"underline"
-                    }}>
+                <View style={styles.TitlesContainer}>
+                    <Text style={styles.TitlesName}>
                         Titles 
                     </Text>
     
@@ -65,8 +75,25 @@ class DetailScreen extends Component{
                             this.props.titles.map((name,index)=>(
                                 <Text
                                 key={index}
-                                style={styles.NormalText}>
-                                    {`- ${name}`}
+                                style={styles.TitlesNameList}>
+                                     <Text key={index}>{'\u2022' + " "}</Text>{name}
+                                </Text>
+                            ))
+                        }
+                   
+                    
+                </View>
+                <View style={styles.TitlesContainer}>
+                    <Text style={styles.TitlesName}>
+                        Aliases 
+                    </Text>
+    
+                        {
+                            this.props.aliases.map((name,index)=>(
+                                <Text
+                                key={index}
+                                style={styles.TitlesNameList}>
+                                     <Text key={index}>{'\u2022' + " "}</Text>{name}
                                 </Text>
                             ))
                         }
@@ -75,9 +102,12 @@ class DetailScreen extends Component{
                 </View>
 
                 <View style={styles.MiscContainer}>
-                        <Text style={styles.NormalText}>
-                            Father: {this.props.cName}
-                        </Text>
+                    <Text style={styles.LeftText}>
+                        Father
+                    </Text>
+                    <Text style={styles.NormalText}>
+                        {this.props.cName}
+                    </Text>
                 </View>
 
                 {/* <View style={styles.MiscContainer}>
@@ -87,10 +117,7 @@ class DetailScreen extends Component{
                 </View> */}
 
                 <View style={styles.MiscContainer}>
-                    <Text style={{
-                        fontSize:20,
-                        textDecorationLine:"underline"
-                    }}>
+                    <Text style={styles.TitlesName}>
                         Allegiences 
                     </Text>
     
@@ -98,7 +125,7 @@ class DetailScreen extends Component{
                             this.props.allegiances.map((name,index)=>(
                                 <Text
                                 key={index}
-                                style={styles.NormalText}>
+                                style={styles.TitlesNameList}>
                                     {`- ${name}`}
                                 </Text>
                             ))
@@ -113,6 +140,7 @@ class DetailScreen extends Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      flexDirection:"column",
       backgroundColor: '#fff',
     },
     ImageStyle:{
@@ -127,7 +155,7 @@ const styles = StyleSheet.create({
     },
     CharacterContainer:{
         padding:20,
-        borderBottomWidth:1
+        
     },
     CharacterName:{
         textAlign:"center",
@@ -135,21 +163,49 @@ const styles = StyleSheet.create({
         fontSize:40
     },
     MiscContainer:{
+        flexDirection:'row',
+        flexWrap:'wrap',
         padding:15,
+        borderWidth:1,
+        borderRadius:2,
+        borderColor:'#ddd',
+        borderBottomWidth:0,
+        elevation:1,
+        marginTop:10
+    },
+    TitlesContainer:{
+        padding:15,
+        borderWidth:1,
+        borderRadius:2,
+        borderColor:'#ddd',
+        borderBottomWidth:0,
+        elevation:1,
+        marginTop:10
     },
     TitlesName:{
-        
+        textAlign:'left',
+        color:'#A9A9A9',
+        fontSize:20
     },
     NormalText:{
         fontSize:20
+    },
+    LeftText:{
+        fontSize:20,
+        marginRight:20,
+        color:'#A9A9A9'
+    },
+    TitlesNameList:{
+        fontSize:18,
+        padding:8
     }
 
   });
 
 function mapStateToProps(state){
-    console.log(state)
-    const {url,name,gender,born,died,titles,father,allegiances,mother,error,loading} = state.singleCharacter;
-
+    // console.log(state)
+    const {url,name,gender,born,died,titles,aliases,father,allegiances,mother,error,loading} = state.singleCharacter;
+    const {characterList} = state.characterList;
     const {cName} = state.Characters;
     return{
         url,
@@ -158,6 +214,7 @@ function mapStateToProps(state){
         born,
         died,
         titles,
+        aliases,
         father,
         mother,
         allegiances,

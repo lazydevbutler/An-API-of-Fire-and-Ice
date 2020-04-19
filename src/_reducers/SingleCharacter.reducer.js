@@ -31,6 +31,7 @@ const singleCharacterReducer = (state = initialState,action)=>{
                 name:action.singleCharacter.name,
                 gender:action.singleCharacter.gender,
                 titles:action.singleCharacter.titles,
+                aliases:action.singleCharacter.aliases,
                 born:action.singleCharacter.born,
                 died:action.singleCharacter.died,
                 father:action.singleCharacter.father,
