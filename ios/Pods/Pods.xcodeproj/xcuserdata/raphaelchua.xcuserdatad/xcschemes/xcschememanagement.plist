@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaLibEvent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DoubleConversion.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBLazyVector.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -59,22 +69,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-plab-plabTests.xcscheme</key>
+		<key>OpenSSL-Universal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-plab-tvOS.xcscheme</key>
+		<key>Pods-AnAPIofFireandIce-AnAPIofFireandIceTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-plab-tvOSTests.xcscheme</key>
+		<key>Pods-AnAPIofFireandIce-tvOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-plab.xcscheme</key>
+		<key>Pods-AnAPIofFireandIce-tvOSTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AnAPIofFireandIce.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RCTRequired.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -94,7 +114,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RNReanimated.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RNScreens.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RNVectorIcons.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -105,6 +135,11 @@
 			<false/>
 		</dict>
 		<key>React-CoreModules.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React-RCTActionSheet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -169,6 +204,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>React.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ReactCommon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -180,6 +220,11 @@
 			<false/>
 		</dict>
 		<key>YogaKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>boost-for-react-native.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

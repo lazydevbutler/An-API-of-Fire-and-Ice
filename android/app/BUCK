@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.plab",
+    package = "com.anapioffireandice",
 )
 
 android_resource(
     name = "res",
-    package = "com.plab",
+    package = "com.anapioffireandice",
     res = "src/main/res",
 )
 

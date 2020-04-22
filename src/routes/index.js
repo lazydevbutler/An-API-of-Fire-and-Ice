@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';

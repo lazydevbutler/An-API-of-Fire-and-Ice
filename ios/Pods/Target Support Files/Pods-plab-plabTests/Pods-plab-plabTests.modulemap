@@ -1,6 +1,0 @@
-module Pods_plab_plabTests {
-  umbrella header "Pods-plab-plabTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text ,Image,StyleSheet} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View, Text ,Image,StyleSheet,Platform} from 'react-native';
+import { ScrollView } from 'react-native';
 import {charactersAction} from '../_actions'
 import { Divider } from 'react-native-elements';
-// import { Image } from 'react-native-elements';
 
 
 
 class DetailScreen extends Component{
     constructor(props){
         super(props);
-
+        this.getName.bind(this);
     }
 
     componentDidMount(){
-       
-        // this.props.getCharacter(this.props.mother);
+        this.getName();
+    }
+
+    getName = () =>{
+        this.props.getCharacter(this.props.father);
     }
 
 
     render(){
-        // let characterList = [this.props.father,this.props.mother]
-        // this.props.getMultipleCharacters(characterList);
-        this.props.getCharacter(this.props.father);
         var characterId= this.props.url.split("/")
         var avatarUrl = `https://i.picsum.photos/id/${characterId[characterId.length-1]}/500/500.jpg`
         return(
@@ -154,7 +153,7 @@ const styles = StyleSheet.create({
         marginTop:30
     },
     CharacterContainer:{
-        padding:20,
+        padding: (Platform.OS ==="android" ) ? 10 : 20,
         
     },
     CharacterName:{
@@ -166,21 +165,25 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         padding:15,
-        borderWidth:1,
-        borderRadius:2,
+        borderWidth:(Platform.OS ==="android" ) ? 1 : 1,
+        borderRadius:(Platform.OS ==="android" ) ? 0 :2,
         borderColor:'#ddd',
         borderBottomWidth:0,
-        elevation:1,
-        marginTop:10
+        borderLeftWidth:0,
+        borderRightWidth:0,
+        elevation: (Platform.OS ==="android" ) ? 0 : 1,
+        marginTop: (Platform.OS ==="android" ) ? 0 : 10
     },
     TitlesContainer:{
         padding:15,
-        borderWidth:1,
-        borderRadius:2,
+        borderWidth: (Platform.OS ==="android" ) ? 1 : 1,
+        borderRadius:(Platform.OS ==="android" ) ? 0 : 2,
         borderColor:'#ddd',
         borderBottomWidth:0,
-        elevation:1,
-        marginTop:10
+        borderLeftWidth:0,
+        borderRightWidth:0,
+        elevation: (Platform.OS ==="android" ) ? 0 : 1,
+        marginTop: (Platform.OS ==="android" ) ? 0 : 10
     },
     TitlesName:{
         textAlign:'left',
@@ -203,10 +206,11 @@ const styles = StyleSheet.create({
   });
 
 function mapStateToProps(state){
-    // console.log(state)
+    // console.log(JSON.stringify(state))
     const {url,name,gender,born,died,titles,aliases,father,allegiances,mother,error,loading} = state.singleCharacter;
     const {characterList} = state.characterList;
     const {cName} = state.Characters;
+    console.log(state.Characters)
     return{
         url,
         name,

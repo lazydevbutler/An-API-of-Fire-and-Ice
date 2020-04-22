@@ -1,0 +1,4 @@
+#Wed Apr 22 17:28:26 SGT 2020
+base.0=/Users/raphaelchua/Documents/GITHUB_PROJECTS/An-API-of-Fire-and-Ice/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

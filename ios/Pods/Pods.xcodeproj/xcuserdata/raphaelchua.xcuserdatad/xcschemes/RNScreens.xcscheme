@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D460B234F53AEB0D968FED59138C84D6"
+               BlueprintIdentifier = "214E42634D1E187D876346D36184B655"
+               BuildableName = "libRNScreens.a"
                BlueprintName = "RNScreens"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libRNScreens.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

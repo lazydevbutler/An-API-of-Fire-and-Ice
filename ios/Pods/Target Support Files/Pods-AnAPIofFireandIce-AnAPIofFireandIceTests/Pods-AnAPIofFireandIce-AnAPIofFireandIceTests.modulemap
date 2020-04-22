@@ -1,0 +1,6 @@
+module Pods_AnAPIofFireandIce_AnAPIofFireandIceTests {
+  umbrella header "Pods-AnAPIofFireandIce-AnAPIofFireandIceTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'plab' do
-  # Pods for plab
+target 'AnAPIofFireandIce' do
+  # Pods for AnAPIofFireandIce
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'plab' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'plabTests' do
+  target 'AnAPIofFireandIceTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'plab' do
   end
 end
 
-target 'plab-tvOS' do
-  # Pods for plab-tvOS
+target 'AnAPIofFireandIce-tvOS' do
+  # Pods for AnAPIofFireandIce-tvOS
 
-  target 'plab-tvOSTests' do
+  target 'AnAPIofFireandIce-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
