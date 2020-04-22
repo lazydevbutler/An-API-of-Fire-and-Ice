@@ -7,6 +7,7 @@ jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
 test('render App without crashing',()=>{
     let rootApp
+
     act(()=>{
         rootApp = create(<App/>);
     })
